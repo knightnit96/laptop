@@ -1,0 +1,29 @@
+.table > tbody > tr > td .tools{
+  display: none;
+  color: #dd4b39;
+}
+.table > tbody > tr > td  .tools > .fa,
+.table > tbody > tr > td  .tools > .glyphicon,
+.table > tbody > tr > td  .tools > .ion {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.table > tbody > tr:hover > td .tools {
+  display: inline-block;
+}
+.table > tbody > tr > td {
+  text-align: center;
+}
+.table > thead > tr > th {
+  text-align: center;
+}
+#message-success-admin {
+	background-color: green;
+	color: yellow;
+	border-color: green;
+}
+#message-danger-admin {
+	background-color: red;
+	color: yellow;
+	border-color: red;
+}

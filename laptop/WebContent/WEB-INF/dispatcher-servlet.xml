@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+   	 	http://www.springframework.org/schema/mvc 
+    	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="controller"/>
+    <context:component-scan base-package="dao"/>
+
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/template.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+	</bean>
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler />
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10000000"/>
+	</bean>
+	<bean id="deFine" class="constant.Defines">
+		<property name="URL_PUBLIC" value="/laptop/templates/public"></property>
+		<property name="URL_ADMIN" value="/laptop/templates/admin"></property>
+		<property name="ROW_COUNT_ADMIN" value="5"></property>
+		<property name="ROW_COUNT_PUBLIC" value="9"></property>
+	</bean>
+	<bean id="stringUtils" class="utils.StringUtils">
+	</bean>
+	<bean id="libraryFile" class="utils.LibraryFile">
+	</bean>
+	<bean id="slugUtils" class="utils.SlugUtils">
+	</bean>
+</beans>
